@@ -11,12 +11,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class Security {
+public class UserActions {
     private Long id;
-    private String login;
-    private String password;
-    private Role role;
-    private LocalDateTime created;
-    private LocalDateTime updated;
     private Long userId;
+    private Long productId;
+    private String action;
+    private LocalDateTime actionTime;
 }

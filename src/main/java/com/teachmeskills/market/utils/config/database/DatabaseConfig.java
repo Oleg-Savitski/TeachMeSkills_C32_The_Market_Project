@@ -3,6 +3,7 @@ package com.teachmeskills.market.utils.config.database;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 @Getter
+@Component
 public final class DatabaseConfig {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseConfig.class);
     private static volatile DatabaseConfig instance;

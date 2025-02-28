@@ -1,12 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.teachmeskills</groupId>
   <artifactId>TeachMeSkills_C32_The_Market_Project</artifactId>
   <packaging>war</packaging>
   <version>1.0.0</version>
   <name>TeachMeSkills_C32_The_Market_Project Maven Webapp</name>
-  <url>https://maven.apache.org</url>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <maven.compiler.source>23</maven.compiler.source>
+    <maven.compiler.target>23</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -18,22 +25,22 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>6.2.3</version>
+      <version>6.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>6.2.3</version>
+      <version>6.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>6.2.3</version>
+      <version>6.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>6.2.3</version>
+      <version>6.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.aspectj</groupId>
@@ -84,8 +91,29 @@
       <scope>compile</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>TeachMeSkills_C32_The_Market_Project</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>11.3.1</version>
+        <configuration>
+          <url>jdbc:postgresql://localhost:5432/postgres</url>
+          <user>postgres</user>
+          <password>legendog</password>
+          <baselineVersion>1.0.0</baselineVersion>
+          <cleanDisabled>true</cleanDisabled>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
