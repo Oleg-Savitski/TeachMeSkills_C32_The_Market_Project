@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Component
 public class Product {
-    private Integer id;
+    private Long id;
     private String name;
     private Double price;
     private Timestamp created;
