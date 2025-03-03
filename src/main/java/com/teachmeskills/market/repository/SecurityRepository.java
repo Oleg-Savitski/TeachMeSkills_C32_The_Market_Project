@@ -1,6 +1,7 @@
 package com.teachmeskills.market.repository;
 
 import com.teachmeskills.market.annotation.LeadTimed;
+import com.teachmeskills.market.model.Role;
 import com.teachmeskills.market.model.Security;
 import com.teachmeskills.market.utils.config.database.DatabaseConfig;
 import org.slf4j.Logger;
@@ -8,12 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 
 import static com.teachmeskills.market.utils.constant.SQLQuery.INSERT_INTO_IS_SAVE_SECURITY;
+import static com.teachmeskills.market.utils.constant.SQLQuery.SELECT_FROM_LOGIN_VALIDATE;
 
 @Repository
 public class SecurityRepository {
@@ -59,5 +58,27 @@ public class SecurityRepository {
             logger.error("Error saving security -> {}: {}", security, e.getMessage());
             return false;
         }
+    }
+
+    @LeadTimed("-> Worked out method findByLoginValidate")
+    public Security findByLoginValidate(String login) {
+        try (Connection connection = databaseConfig.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FROM_LOGIN_VALIDATE)) {
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Security security = new Security();
+                security.setId(resultSet.getLong("id"));
+                security.setLogin(resultSet.getString("login"));
+                security.setPassword(resultSet.getString("password"));
+                security.setRole(Role.valueOf(resultSet.getString("role")));
+                security.setCreated(resultSet.getTimestamp("created"));
+                security.setUpdated(resultSet.getTimestamp("updated"));
+                security.setUserId(resultSet.getLong("user_id"));
+                return security;
+            }
+        } catch (SQLException e) {
+            logger.error("Error finding security by login -> {}: {}", login, e.getMessage());
+        }
+        return null;
     }
 }

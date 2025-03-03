@@ -75,7 +75,7 @@
         <p class="lead">We hope you enjoy your stay!</p>
 
         <div class="button-group">
-            <a class="btn btn-primary btn-lg" href="/login" role="button">Login for Registered Users</a>
+            <a class="btn btn-primary btn-lg" href="/auth/login" role="button">Login for Registered Users</a>
             <a class="btn btn-secondary btn-lg" href="/security/registration" role="button">Register for New Users</a>
         </div>
     </div>

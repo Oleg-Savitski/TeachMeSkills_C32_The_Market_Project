@@ -1,6 +1,5 @@
 package com.teachmeskills.market.utils.config.database;
 
-import com.teachmeskills.market.annotation.LeadTimed;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +70,6 @@ public final class DatabaseConfig {
         }
     }
 
-    @LeadTimed("-> Worked out method getConnection")
     public Connection getConnection() throws SQLException {
         try {
             Connection connection = DriverManager.getConnection(url, user, password);

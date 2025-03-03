@@ -1,5 +1,6 @@
 package com.teachmeskills.market.services;
 
+import com.teachmeskills.market.annotation.LeadTimed;
 import com.teachmeskills.market.model.Role;
 import com.teachmeskills.market.model.Security;
 import com.teachmeskills.market.model.User;
@@ -19,7 +20,8 @@ public class RegistrationSecurityService {
         this.securityRepository = securityRepository;
     }
 
-    public Boolean registration(String firstname, String secondName, Integer age, String email, String sex, String telephoneNumber, String login, String password) {
+    @LeadTimed("-> Worked out method registrationNewUser")
+    public Boolean registrationNewUser(String firstname, String secondName, Integer age, String email, String sex, String telephoneNumber, String login, String password) {
         User user = new User();
         user.setFirstname(firstname);
         user.setSecondName(secondName);

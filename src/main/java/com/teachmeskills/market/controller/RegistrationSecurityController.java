@@ -36,7 +36,7 @@ public class RegistrationSecurityController {
             @RequestParam("login") String login,
             @RequestParam("password") String password
     ) {
-        boolean isRegistered = securityService.registration(firstname, secondName, age, email, sex, telephoneNumber, login, password);
+        boolean isRegistered = securityService.registrationNewUser(firstname, secondName, age, email, sex, telephoneNumber, login, password);
         return isRegistered ? "registrationSuccess" : "registrationFailed";
     }
 }
