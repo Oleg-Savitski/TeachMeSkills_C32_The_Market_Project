@@ -76,7 +76,7 @@
 
         <div class="button-group">
             <a class="btn btn-primary btn-lg" href="/login" role="button">Login for Registered Users</a>
-            <a class="btn btn-secondary btn-lg" href="/register" role="button">Register for New Users</a>
+            <a class="btn btn-secondary btn-lg" href="/security/registration" role="button">Register for New Users</a>
         </div>
     </div>
 </div>

@@ -61,7 +61,7 @@
 <body>
 <div class="registration-container mt-5">
     <h2 class="text-center">Registration</h2>
-    <form action="registration" method="POST" class="mt-4" onsubmit="return validateForm();">
+    <form action="/security/registration" method="POST" class="mt-4" onsubmit="return validateForm();">
         <div class="form-group">
             <label for="firstname">First name:</label>
             <input type="text" id="firstname" name="firstname" class="form-control" required>

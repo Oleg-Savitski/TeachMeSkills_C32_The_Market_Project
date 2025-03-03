@@ -24,6 +24,7 @@ public final class DatabaseConfig {
 
     private DatabaseConfig() {
         loadProperties();
+        checkDriver();
     }
 
     public static DatabaseConfig getInstance() {
@@ -50,6 +51,9 @@ public final class DatabaseConfig {
             user = prop.getProperty("db.user");
             password = prop.getProperty("db.password");
 
+            logger.info("Database URL -> {}", url);
+            logger.info("Database User -> {}", user);
+
             if (url == null || user == null || password == null) {
                 logger.error("Database configuration properties are missing or invalid.");
             }
@@ -58,8 +62,24 @@ public final class DatabaseConfig {
         }
     }
 
+    private void checkDriver() {
+        try {
+            Class.forName("org.postgresql.Driver");
+            logger.info("PostgreSQL Driver Registered!");
+        } catch (ClassNotFoundException e) {
+            logger.error("PostgreSQL Driver not found.");
+        }
+    }
+
     @LeadTimed("-> Worked out method getConnection")
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            logger.info("Database connection established successfully.");
+            return connection;
+        } catch (SQLException e) {
+            logger.error("Error establishing database connection -> {}", e.getMessage());
+            throw e;
+        }
     }
 }

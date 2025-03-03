@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 
 import static com.teachmeskills.market.utils.constant.SQLQuery.INSERT_INTO_IS_SAVE_USER;
 
@@ -28,9 +25,8 @@ public class UserRepository {
 
     @LeadTimed("-> Worked out method isSaveUser")
     public Boolean isSaveUser (User user) {
-
         if (user == null) {
-            logger.error("User object is null");
+            logger.error("User  object is null");
             return false;
         }
         if (user.getFirstname() == null || user.getSecondName() == null || user.getEmail() == null || user.getTelephoneNumber() == null) {
@@ -40,7 +36,7 @@ public class UserRepository {
         }
 
         try (Connection connection = databaseConfig.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO_IS_SAVE_USER)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO_IS_SAVE_USER, Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getSecondName());
@@ -54,6 +50,11 @@ public class UserRepository {
 
             boolean isSaved = preparedStatement.executeUpdate() > 0;
             if (isSaved) {
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        user.setId(generatedKeys.getLong(1));
+                    }
+                }
                 logger.info("User  saved successfully -> {}", user);
             } else {
                 logger.warn("User  not saved -> {}", user);

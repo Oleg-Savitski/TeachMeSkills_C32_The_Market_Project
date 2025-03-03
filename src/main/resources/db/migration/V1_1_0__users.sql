@@ -12,7 +12,7 @@ create table public.users
         unique,
     created          timestamp default now() not null,
     updated          timestamp default now() not null,
-    sex              varchar(1),
+    sex              varchar(10),
     is_deleted       boolean   default false
 );
 
