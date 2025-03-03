@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthService {
+public class AuthenticationService {
 
     private final SecurityRepository securityRepository;
-    private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 
     @Autowired
-    public AuthService(SecurityRepository securityRepository) {
+    public AuthenticationService(SecurityRepository securityRepository) {
         this.securityRepository = securityRepository;
     }
 

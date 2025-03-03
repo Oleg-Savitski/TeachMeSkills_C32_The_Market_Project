@@ -1,7 +1,7 @@
 package com.teachmeskills.market.controller;
 
 import com.teachmeskills.market.exception.AuthenticationException;
-import com.teachmeskills.market.services.AuthService;
+import com.teachmeskills.market.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/auth")
 public class AuthenticationController {
 
-    private final AuthService authService;
+    private final AuthenticationService authenticationService;
 
     @Autowired
-    public AuthenticationController(AuthService authService) {
-        this.authService = authService;
+    public AuthenticationController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
     }
 
     @GetMapping("/login")
@@ -33,7 +33,7 @@ public class AuthenticationController {
             Model model) {
 
         try {
-            boolean isAuthenticated = authService.isAuthenticateUser(login, password);
+            boolean isAuthenticated = authenticationService.isAuthenticateUser(login, password);
             if (isAuthenticated) {
                 return "redirect:/security/registration";
             }
