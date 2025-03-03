@@ -1,5 +1,6 @@
 package com.teachmeskills.market.repository;
 
+import com.teachmeskills.market.annotation.LeadTimed;
 import com.teachmeskills.market.model.Product;
 import com.teachmeskills.market.utils.config.database.DatabaseConfig;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ public class ProductRepository {
         this.databaseConfig = databaseConfig;
     }
 
+    @LeadTimed("-> Worked out method isSaveProduct")
     public Boolean isSaveProduct(Product product) {
         if (product == null) {
             logger.error("Product object is null");

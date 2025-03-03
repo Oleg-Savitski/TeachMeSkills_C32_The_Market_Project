@@ -1,5 +1,6 @@
 package com.teachmeskills.market.repository;
 
+import com.teachmeskills.market.annotation.LeadTimed;
 import com.teachmeskills.market.model.Security;
 import com.teachmeskills.market.utils.config.database.DatabaseConfig;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ public class SecurityRepository {
         this.databaseConfig = databaseConfig;
     }
 
+    @LeadTimed("-> Worked out method isSaveSecurityUser")
     public Boolean isSaveSecurityUser(Security security) {
         if (security == null) {
             logger.error("Security object is null");

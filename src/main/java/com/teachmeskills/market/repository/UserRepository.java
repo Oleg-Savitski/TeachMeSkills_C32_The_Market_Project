@@ -1,5 +1,6 @@
 package com.teachmeskills.market.repository;
 
+import com.teachmeskills.market.annotation.LeadTimed;
 import com.teachmeskills.market.model.User;
 import com.teachmeskills.market.utils.config.database.DatabaseConfig;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ public class UserRepository {
         this.databaseConfig = databaseConfig;
     }
 
+    @LeadTimed("-> Worked out method isSaveUser")
     public Boolean isSaveUser (User user) {
 
         if (user == null) {
