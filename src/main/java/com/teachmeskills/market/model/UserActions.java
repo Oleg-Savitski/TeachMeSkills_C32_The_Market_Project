@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -16,5 +16,5 @@ public class UserActions {
     private Long userId;
     private Long productId;
     private String action;
-    private LocalDateTime actionTime;
+    private Timestamp actionTime;
 }

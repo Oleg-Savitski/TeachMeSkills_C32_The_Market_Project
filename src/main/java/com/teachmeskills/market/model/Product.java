@@ -1,11 +1,11 @@
 package com.teachmeskills.market.model;
 
-import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -15,6 +15,6 @@ public class Product {
     private Integer id;
     private String name;
     private Double price;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+    private Timestamp created;
+    private Timestamp updated;
 }

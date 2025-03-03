@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -19,8 +19,8 @@ public class User {
     private String email;
     private String sex;
     private String telephoneNumber;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+    private Timestamp created;
+    private Timestamp updated;
     private Boolean isDeleted;
     private Security securityInfo;
 }
