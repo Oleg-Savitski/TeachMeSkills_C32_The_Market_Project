@@ -25,15 +25,15 @@ public class SecurityRepository {
         this.databaseConfig = databaseConfig;
     }
 
-    @LeadTimed("-> Worked out method isSaveSecurityUser")
-    public Boolean isSaveSecurityUser(Security security) {
+    @LeadTimed("-> Worked out method isSaveSecurityUser ")
+    public Boolean isSaveSecurityUser (Security security) {
         if (security == null) {
             logger.error("Security object is null");
             return false;
         }
-        if (security.getLogin() == null || security.getPassword() == null || security.getRole() == null) {
-            logger.error("Security fields cannot be null -> login={}, password={}, role={}",
-                    security.getLogin(), security.getPassword(), security.getRole());
+        if (security.getLogin() == null || security.getPassword() == null || security.getRole() == null || security.getSalt() == null) {
+            logger.error("Security fields cannot be null -> login={}, password={}, role={}, salt={}",
+                    security.getLogin(), security.getPassword(), security.getRole(), security.getSalt());
             return false;
         }
 
@@ -42,10 +42,11 @@ public class SecurityRepository {
 
             preparedStatement.setString(1, security.getLogin());
             preparedStatement.setString(2, security.getPassword());
-            preparedStatement.setString(3, security.getRole().toString());
-            preparedStatement.setTimestamp(4, Timestamp.valueOf(security.getCreated().toLocalDateTime()));
-            preparedStatement.setTimestamp(5, Timestamp.valueOf(security.getUpdated().toLocalDateTime()));
-            preparedStatement.setLong(6, security.getUserId());
+            preparedStatement.setString(3, security.getSalt());
+            preparedStatement.setString(4, security.getRole().toString());
+            preparedStatement.setTimestamp(5, Timestamp.valueOf(security.getCreated().toLocalDateTime()));
+            preparedStatement.setTimestamp(6, Timestamp.valueOf(security.getUpdated().toLocalDateTime()));
+            preparedStatement.setLong(7, security.getUserId());
 
             boolean isSaved = preparedStatement.executeUpdate() > 0;
             if (isSaved) {
@@ -62,7 +63,8 @@ public class SecurityRepository {
 
     @LeadTimed("-> Worked out method findByLoginValidate")
     public Security findByLoginValidate(String login) {
-        try (Connection connection = databaseConfig.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FROM_LOGIN_VALIDATE)) {
+        try (Connection connection = databaseConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FROM_LOGIN_VALIDATE)) {
             preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -70,6 +72,7 @@ public class SecurityRepository {
                 security.setId(resultSet.getLong("id"));
                 security.setLogin(resultSet.getString("login"));
                 security.setPassword(resultSet.getString("password"));
+                security.setSalt(resultSet.getString("salt"));
                 security.setRole(Role.valueOf(resultSet.getString("role")));
                 security.setCreated(resultSet.getTimestamp("created"));
                 security.setUpdated(resultSet.getTimestamp("updated"));
