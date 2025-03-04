@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static com.teachmeskills.market.utils.constant.SQLQuery.INSERT_INTO_IS_SAVE_USER;
+import static com.teachmeskills.market.utils.constant.SQLQuery.*;
 
 @Repository
 public class UserRepository {
@@ -64,5 +66,94 @@ public class UserRepository {
             logger.error("Error saving user -> {}: {}", user, e.getMessage());
             return false;
         }
+    }
+
+    @LeadTimed("-> Worked out method getUserById")
+    public User getUserById(Long id) {
+        try (Connection connection = databaseConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_GET_USER_ID)) {
+            preparedStatement.setLong(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return mapRowToUser (resultSet);
+            }
+        } catch (SQLException e) {
+            logger.error("Error retrieving user with id {}: {}", id, e.getMessage());
+        }
+        return null;
+    }
+
+    @LeadTimed("-> Worked out method getAllUsers")
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        try (Connection connection = databaseConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_GET_ALL_USERS);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                users.add(mapRowToUser (resultSet));
+            }
+        } catch (SQLException e) {
+            logger.error("Error retrieving all users -> {}", e.getMessage());
+        }
+        return users;
+    }
+
+    @LeadTimed("-> Worked out method updateUser")
+    public Boolean updateUser (User user) {
+        try (Connection connection = databaseConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
+            preparedStatement.setString(1, user.getFirstname());
+            preparedStatement.setString(2, user.getSecondName());
+            preparedStatement.setInt(3, user.getAge());
+            preparedStatement.setString(4, user.getEmail());
+            preparedStatement.setString(5, user.getSex());
+            preparedStatement.setString(6, user.getTelephoneNumber());
+            preparedStatement.setTimestamp(7, user.getUpdated());
+            preparedStatement.setLong(8, user.getId());
+
+            boolean isUpdated = preparedStatement.executeUpdate() > 0;
+            if (isUpdated) {
+                logger.info("User  updated successfully -> {}", user);
+            } else {
+                logger.warn("User  not found for update -> {}", user);
+            }
+            return isUpdated;
+        } catch (SQLException e) {
+            logger.error("Error updating user -> {}: {}", user, e.getMessage());
+            return false;
+        }
+    }
+
+    @LeadTimed("-> Worked out method deleteUser")
+    public Boolean deleteUser (Long id) {
+        try (Connection connection = databaseConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER)) {
+            preparedStatement.setLong(1, id);
+            boolean isDeleted = preparedStatement.executeUpdate() > 0;
+            if (isDeleted) {
+                logger.info("User  deleted successfully with id -> {}", id);
+            } else {
+                logger.warn("User  not found for deletion with id -> {}", id);
+            }
+            return isDeleted;
+        } catch (SQLException e) {
+            logger.error("Error deleting user with id {}: {}", id, e.getMessage());
+            return false;
+        }
+    }
+
+    private User mapRowToUser (ResultSet resultSet) throws SQLException {
+        User user = new User();
+        user.setId(resultSet.getLong("id"));
+        user.setFirstname(resultSet.getString("firstname"));
+        user.setSecondName(resultSet.getString("second_name"));
+        user.setAge(resultSet.getInt("age"));
+        user.setEmail(resultSet.getString("email"));
+        user.setSex(resultSet.getString("sex"));
+        user.setTelephoneNumber(resultSet.getString("telephone_number"));
+        user.setCreated(resultSet.getTimestamp("created"));
+        user.setUpdated(resultSet.getTimestamp("updated"));
+        user.setIsDeleted(resultSet.getBoolean("is_deleted"));
+        return user;
     }
 }
