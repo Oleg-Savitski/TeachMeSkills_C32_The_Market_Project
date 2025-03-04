@@ -28,7 +28,7 @@
                 <form action="${pageContext.request.contextPath}/auth/login" method="post" onsubmit="return validateForm()">
                     <div class="form-group">
                         <label for="login">Login</label>
-                        <input type="text" class="form-control" id="login" name="login" required>
+                        <input type="text" class="form-control" id="login" name="login" required value="${login != null ? login : ''}">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </div>
-                    <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+                    <div id="error-message" class="alert alert-danger" style="display: ${error != null ? 'block' : 'none'};">${error}</div>
                 </form>
                 <div class="text-center">
                     <a href="#">Forgot Password?</a>

@@ -1,6 +1,6 @@
 package com.teachmeskills.market.controller;
 
-import com.teachmeskills.market.exception.AuthenticationException;
+import com.teachmeskills.market.dto.AuthenticationResult;
 import com.teachmeskills.market.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,16 +32,14 @@ public class AuthenticationController {
             @RequestParam("password") String password,
             Model model) {
 
-        try {
-            boolean isAuthenticated = authenticationService.isAuthenticateUser(login, password);
-            if (isAuthenticated) {
-                return "redirect:/security/registration";
-            }
-        } catch (AuthenticationException e) {
-            model.addAttribute("error", e.getMessage());
+        AuthenticationResult result = authenticationService.isAuthenticateUser (login, password);
+
+        if (result.success()) {
+            return "redirect:/security/registration";
+        } else {
+            model.addAttribute("error", result.message());
+            model.addAttribute("login", login);
             return "login";
         }
-
-        return "login";
     }
 }
