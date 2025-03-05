@@ -48,6 +48,11 @@ public class RegistrationRequestDto {
     )
     private String telephoneNumber;
 
+    @NotNull
+    @NotBlank
+    @Pattern(regexp = "29|33|44|25", message = "Operator must be one of the following: 29, 33, 44, 25")
+    private String operator;
+
     @NotNull(message = "Login cannot be null")
     @NotBlank(message = "Login cannot be blank")
     @Pattern(

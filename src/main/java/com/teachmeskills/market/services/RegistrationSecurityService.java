@@ -26,14 +26,14 @@ public class RegistrationSecurityService {
     }
 
     @LeadTimed("-> Worked out method registrationNewUser  ")
-    public Boolean registrationNewUser  (String firstname, String secondName, Integer age, String email, String sex, String telephoneNumber, String login, String password) {
+    public Boolean registrationNewUser  (String firstname, String secondName, Integer age, String email, String sex, String fullTelephoneNumber, String login, String password) {
         User user = new User();
         user.setFirstname(firstname);
         user.setSecondName(secondName);
         user.setAge(age);
         user.setEmail(email);
         user.setSex(sex);
-        user.setTelephoneNumber(telephoneNumber);
+        user.setTelephoneNumber(fullTelephoneNumber);
         user.setCreated(new Timestamp(System.currentTimeMillis()));
         user.setUpdated(new Timestamp(System.currentTimeMillis()));
         user.setIsDeleted(false);

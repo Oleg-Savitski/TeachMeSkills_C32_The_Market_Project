@@ -43,6 +43,9 @@ public class RegistrationSecurityController {
             return "registration";
         }
 
+        String fullTelephoneNumber = requestDto.getOperator() + requestDto.getTelephoneNumber();
+        requestDto.setTelephoneNumber(fullTelephoneNumber);
+
         boolean isRegistered = securityService.registrationNewUser (
                 requestDto.getFirstname(),
                 requestDto.getSecondName(),

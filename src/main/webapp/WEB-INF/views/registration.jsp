@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,6 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
-
         label {
             font-style: italic;
             color: #333;
@@ -61,25 +61,29 @@
 <body>
 <div class="registration-container mt-5">
     <h2 class="text-center">Registration</h2>
-    <form action="/security/registration" method="POST" class="mt-4" onsubmit="return validateForm();">
+    <form:form action="/security/registration" method="POST" modelAttribute="registrationRequestDto" class="mt-4" onsubmit="return validateForm();">
         <div class="form-group">
             <label for="firstname">First name:</label>
-            <input type="text" id="firstname" name="firstname" class="form-control" required>
+            <form:input path="firstname" id="firstname" class="form-control" required="required"/>
+            <form:errors path="firstname" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
             <label for="secondName">Second name:</label>
-            <input type="text" id="secondName" name="secondName" class="form-control" required>
+            <form:input path="secondName" id="secondName" class="form-control" required="required"/>
+            <form:errors path="secondName" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
             <label for="age">Age:</label>
-            <input type="number" id="age" name="age" class="form-control" required>
+            <form:input path="age" id="age" type="number" class="form-control" required="required"/>
+            <form:errors path="age" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="form-control" required>
+            <form:input path="email" id="email" class="form-control" required="required"/>
+            <form:errors path="email" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
@@ -92,38 +96,40 @@
                 <input class="form-check-input" type="radio" id="female" name="sex" value="female" required>
                 <label class="form-check-label" for="female">Female</label>
             </div>
+            <form:errors path="sex" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
             <label for="telephoneNumber">Telephone number:</label>
             <div class="input-group">
                 <span class="input-group-text">+ 375</span>
-                <select class="form-select" id="operator" name="operator" required>
+                <form:select path="operator" class="form-select" required="required">
                     <option value="29">29</option>
                     <option value="44">44</option>
                     <option value="25">25</option>
                     <option value="33">33</option>
-                </select>
-                <input type="text" id="telephoneNumber" name="telephoneNumber" class="form-control" placeholder="XXX-XX-XX" required>
+                </form:select>
+                <form:input path="telephoneNumber" class="form-control" required="required"/>
             </div>
+            <form:errors path="telephoneNumber" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
             <label for="login">Login:</label>
-            <input type="text" id="login" name="login" class="form-control" required>
+            <form:input path="login" id="login" class="form-control" required="required"/>
+            <form:errors path="login" cssClass="text-danger"/>
         </div>
 
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="form-control" required>
+            <form:input path="password" id="password" type="password" class="form-control" required="required"/>
+            <form:errors path="password" cssClass="text-danger"/>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-    </form>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form:form>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
