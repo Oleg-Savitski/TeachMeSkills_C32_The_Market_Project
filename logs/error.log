@@ -1,0 +1,16 @@
+2025-03-05 22:13:40 - Request URL -> http://localhost:8080/security/registration
+2025-03-05 22:13:40 - Method -> GET
+2025-03-05 22:13:40 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-05 22:13:40 - Response Status -> 200
+2025-03-05 22:13:40 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-05 22:14:26 - Request URL -> http://localhost:8080/security/registration
+2025-03-05 22:14:26 - Method -> POST
+2025-03-05 22:14:26 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-05 22:14:27 - Validation error: First name must contain only letters and hyphens
+2025-03-05 22:14:27 - Validation error: Telephone number must be at least 8 digits and may start with a '+'
+2025-03-05 22:14:27 - Validation error: First name must be between 2 and 20 characters
+2025-03-05 22:14:27 - Validation error: Second name must be between 2 and 20 characters
+2025-03-05 22:14:27 - Validation error: Second name must contain only letters and hyphens
+2025-03-05 22:14:27 - Validation error: Password must contain at least one uppercase letter, one digit, and one special character
+2025-03-05 22:14:27 - Response Status -> 200
+2025-03-05 22:14:27 - Request completed for URL -> http://localhost:8080/security/registration

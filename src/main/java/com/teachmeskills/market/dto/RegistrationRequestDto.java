@@ -26,7 +26,6 @@ public class RegistrationRequestDto {
     )
     private String secondName;
 
-    @NotBlank
     @NotNull(message = "Age cannot be null")
     @Min(value = 12, message = "Age must be at least 12")
     @Max(value = 120, message = "Age must be at most 120")

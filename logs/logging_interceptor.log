@@ -18,3 +18,23 @@
 2025-03-05 18:41:29 - Remote Address -> 0:0:0:0:0:0:0:1
 2025-03-05 18:41:29 - Response Status -> 200
 2025-03-05 18:41:29 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-05 22:03:50 - Request URL -> http://localhost:8080/security/registration
+2025-03-05 22:03:50 - Method -> GET
+2025-03-05 22:03:50 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-05 22:03:50 - Response Status -> 200
+2025-03-05 22:03:50 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-05 22:05:06 - Request URL -> http://localhost:8080/security/registration
+2025-03-05 22:05:06 - Method -> POST
+2025-03-05 22:05:06 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-05 22:05:06 - Request failed with exception -> HV000030: No validator could be found for constraint 'jakarta.validation.constraints.NotBlank' validating type 'java.lang.Integer'. Check configuration for 'age'
+2025-03-05 22:05:06 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-05 22:13:40 - Request URL -> http://localhost:8080/security/registration
+2025-03-05 22:13:40 - Method -> GET
+2025-03-05 22:13:40 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-05 22:13:40 - Response Status -> 200
+2025-03-05 22:13:40 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-05 22:14:26 - Request URL -> http://localhost:8080/security/registration
+2025-03-05 22:14:26 - Method -> POST
+2025-03-05 22:14:26 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-05 22:14:27 - Response Status -> 200
+2025-03-05 22:14:27 - Request completed for URL -> http://localhost:8080/security/registration

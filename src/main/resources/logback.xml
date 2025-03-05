@@ -20,4 +20,16 @@
         <appender-ref ref="LOGGING_INTERCEPTOR_FILE" />
     </logger>
 
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>C:\Java-job\TeachMeSkills_C32_The_Market_Project\logs/error.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="ERROR">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="ERROR_FILE" />
+    </root>
+
 </configuration>
