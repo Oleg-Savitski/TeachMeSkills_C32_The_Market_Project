@@ -6,7 +6,7 @@
         </encoder>
     </appender>
     <appender name="LOGGING_INTERCEPTOR_FILE" class="ch.qos.logback.core.FileAppender">
-        <file>${LOG_DIR}/logging_interceptor.log</file>
+        <file>C:\Java-job\TeachMeSkills_C32_The_Market_Project\logs/logging_interceptor.log</file>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
         </encoder>
@@ -16,7 +16,7 @@
         <appender-ref ref="STDOUT" />
     </root>
 
-    <logger name="com.teachmeskills.market.interceptor.LoggingInterceptor" level="DEBUG" additivity="false">
+    <logger name="com.teachmeskills.market.interceptor.LoggingInterceptor" level="DEBUG" additivity="true">
         <appender-ref ref="LOGGING_INTERCEPTOR_FILE" />
     </logger>
 
