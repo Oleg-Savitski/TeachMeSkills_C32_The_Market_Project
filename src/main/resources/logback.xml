@@ -1,5 +1,12 @@
 <configuration>
+    <property name="LOG_DIR" value="logs" />
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="LOGGING_INTERCEPTOR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/logging_interceptor.log</file>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
         </encoder>
@@ -8,4 +15,9 @@
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
+
+    <logger name="com.teachmeskills.market.interceptor.LoggingInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="LOGGING_INTERCEPTOR_FILE" />
+    </logger>
+
 </configuration>
