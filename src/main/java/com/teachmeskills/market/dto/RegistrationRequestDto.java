@@ -43,8 +43,8 @@ public class RegistrationRequestDto {
     @NotNull
     @NotBlank
     @Pattern(
-            regexp = "^\\+?[0-9]{8,}$",
-            message = "Telephone number must be at least 8 digits and may start with a '+'"
+            regexp = "^\\+?[0-9]{7,}$",
+            message = "Telephone number must be at least 7 digits and may start with a '+'"
     )
     private String telephoneNumber;
 
@@ -60,7 +60,7 @@ public class RegistrationRequestDto {
     @NotBlank(message = "Password cannot be blank")
     @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
     @Pattern(
-            regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$",
+            regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&()])[A-Za-z\\d@$!%*?&()]{8,20}$",
             message = "Password must contain at least one uppercase letter, one digit, and one special character"
     )
     private String password;

@@ -35,7 +35,7 @@
     <script>
         function validateAge() {
             const ageInput = document.getElementById('age');
-            const age = parseInt(ageInput.value); //метод не забыть.
+            const age = parseInt(ageInput.value);
             if (age < 12) {
                 alert("Registration is not allowed for users under 12 years old.");
                 return false;
@@ -45,7 +45,7 @@
 
         function validatePassword() {
             const passwordInput = document.getElementById('password');
-            const password = passwordInput.value; // метод не забыть.
+            const password = passwordInput.value;
             if (password.length < 8) {
                 alert("Password must be at least 8 characters long.");
                 return false;
