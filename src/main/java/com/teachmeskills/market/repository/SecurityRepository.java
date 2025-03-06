@@ -26,7 +26,7 @@ public class SecurityRepository {
     }
 
     @LeadTimed("-> Worked out method isSaveSecurityUser ")
-    public Boolean isSaveSecurityUser (Security security) {
+    public Boolean saveSecurityUser(Security security) {
         if (security == null) {
             logger.error("Security object is null");
             return false;

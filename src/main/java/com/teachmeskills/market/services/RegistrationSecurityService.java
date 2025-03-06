@@ -1,6 +1,7 @@
 package com.teachmeskills.market.services;
 
 import com.teachmeskills.market.annotation.LeadTimed;
+import com.teachmeskills.market.exception.RegistrationException;
 import com.teachmeskills.market.model.Role;
 import com.teachmeskills.market.model.Security;
 import com.teachmeskills.market.model.User;
@@ -25,8 +26,8 @@ public class RegistrationSecurityService {
         this.securityRepository = securityRepository;
     }
 
-    @LeadTimed("-> Worked out method registrationNewUser  ")
-    public Boolean registrationNewUser  (String firstname, String secondName, Integer age, String email, String sex, String fullTelephoneNumber, String login, String password) {
+    @LeadTimed("-> Worked out method registrationNewUser ")
+    public Boolean registrationNewUser (String firstname, String secondName, Integer age, String email, String sex, String fullTelephoneNumber, String login, String password) {
         User user = new User();
         user.setFirstname(firstname);
         user.setSecondName(secondName);
@@ -38,9 +39,9 @@ public class RegistrationSecurityService {
         user.setUpdated(new Timestamp(System.currentTimeMillis()));
         user.setIsDeleted(false);
 
-        Boolean isUserSaved = userRepository.isSaveUser  (user);
+        Boolean isUserSaved = userRepository.createUser (user);
         if (!isUserSaved) {
-            return false;
+            throw new RegistrationException("Failed to save user during registration.");
         }
 
         Long userId = user.getId();
@@ -56,6 +57,10 @@ public class RegistrationSecurityService {
         security.setUpdated(new Timestamp(System.currentTimeMillis()));
         security.setUserId(userId);
 
-        return securityRepository.isSaveSecurityUser  (security);
+        if (!securityRepository.saveSecurityUser (security)) {
+            throw new RegistrationException("Failed to save security information during registration.");
+        }
+
+        return true;
     }
 }

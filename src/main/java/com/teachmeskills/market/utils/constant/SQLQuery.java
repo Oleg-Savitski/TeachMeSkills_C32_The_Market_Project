@@ -10,4 +10,9 @@ public interface SQLQuery {
     String SELECT_GET_ALL_USERS = "SELECT * FROM users WHERE is_deleted = false";
     String UPDATE_USER = "UPDATE users SET firstname = ?, second_name = ?, age = ?, email = ?, sex = ?, telephone_number = ?, updated = ? WHERE id = ? AND is_deleted = false";
     String DELETE_USER = "UPDATE users SET is_deleted = true WHERE id = ?";
+    String SELECT_PRODUCT_BY_ID = "SELECT * FROM products WHERE id = ?";
+    String UPDATE_PRODUCT = "UPDATE products SET name = ?, price = ?, updated = ? WHERE id = ?";
+    String DELETE_PRODUCT = "DELETE FROM products WHERE id = ?";
+    String SELECT_ALL_PRODUCTS = "SELECT * FROM products";
+
 }

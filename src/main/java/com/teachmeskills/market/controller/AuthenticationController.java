@@ -1,7 +1,9 @@
 package com.teachmeskills.market.controller;
 
 import com.teachmeskills.market.dto.AuthenticationResult;
+import com.teachmeskills.market.exception.AuthenticationException;
 import com.teachmeskills.market.services.AuthenticationService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,15 +32,22 @@ public class AuthenticationController {
     public String login(
             @RequestParam("login") String login,
             @RequestParam("password") String password,
-            Model model) {
+            Model model,
+            HttpServletRequest request) {
 
-        AuthenticationResult result = authenticationService.isAuthenticateUser (login, password);
+        try {
+            AuthenticationResult result = authenticationService.isAuthenticateUser (login, password);
 
-        if (result.success()) {
-            return "redirect:/security/registration";
-        } else {
-            model.addAttribute("error", result.message());
-            model.addAttribute("login", login);
+            if (result.success()) {
+                request.getSession().setAttribute("currentUser", login);
+                return "redirect:/register/users";
+            } else {
+                model.addAttribute("error", result.message());
+                model.addAttribute("login", login);
+                return "login";
+            }
+        } catch (AuthenticationException e) {
+            model.addAttribute("error", e.getMessage());
             return "login";
         }
     }

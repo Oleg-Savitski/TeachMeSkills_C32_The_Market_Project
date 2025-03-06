@@ -27,7 +27,7 @@ public class UserActionsRepository {
     }
 
     @LeadTimed("-> Worked out method isSaveUserAction")
-    public Boolean isSaveUserAction(UserActions userActions) {
+    public Boolean actionSaveUser(UserActions userActions) {
         if (userActions == null) {
             logger.error("User Actions object is null");
             return false;

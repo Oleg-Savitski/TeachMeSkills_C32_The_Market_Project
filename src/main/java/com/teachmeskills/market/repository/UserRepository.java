@@ -25,8 +25,8 @@ public class UserRepository {
         this.databaseConfig = databaseConfig;
     }
 
-    @LeadTimed("-> Worked out method isSaveUser")
-    public Boolean isSaveUser (User user) {
+    @LeadTimed("-> Worked out method createUser")
+    public Boolean createUser(User user) {
         if (user == null) {
             logger.error("User  object is null");
             return false;

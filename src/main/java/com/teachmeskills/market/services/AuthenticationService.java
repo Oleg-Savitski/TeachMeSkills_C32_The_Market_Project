@@ -1,6 +1,7 @@
 package com.teachmeskills.market.services;
 
 import com.teachmeskills.market.dto.AuthenticationResult;
+import com.teachmeskills.market.exception.AuthenticationException;
 import com.teachmeskills.market.model.Security;
 import com.teachmeskills.market.repository.SecurityRepository;
 import com.teachmeskills.market.utils.config.security.PasswordUtil;
@@ -27,7 +28,7 @@ public class AuthenticationService {
 
         if (security == null) {
             logger.warn("Authentication failed -> User with login '{}' not found.", login);
-            return new AuthenticationResult(false, "User  not found");
+            throw new AuthenticationException("User  not found");
         }
 
         boolean isAuthenticated = PasswordUtil.checkPassword(password, security.getSalt(), security.getPassword());
@@ -37,7 +38,7 @@ public class AuthenticationService {
             return new AuthenticationResult(true, "Authentication successful");
         } else {
             logger.warn("Authentication failed -> Incorrect password for user '{}'.", login);
-            return new AuthenticationResult(false, "Invalid password");
+            throw new AuthenticationException("Invalid password");
         }
     }
 }

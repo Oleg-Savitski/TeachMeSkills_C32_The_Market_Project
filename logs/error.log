@@ -97,3 +97,138 @@
 2025-03-05 23:51:06 - Validation error: Second name must contain only letters and hyphens
 2025-03-05 23:51:06 - Response Status -> 200
 2025-03-05 23:51:06 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-06 01:10:11 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 01:10:11 - Method -> GET
+2025-03-06 01:10:11 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 01:10:11 - Response Status -> 200
+2025-03-06 01:10:11 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 01:10:27 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 01:10:27 - Method -> POST
+2025-03-06 01:10:27 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 01:10:28 - Response Status -> 200
+2025-03-06 01:10:28 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:21:25 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:21:25 - Method -> GET
+2025-03-06 02:21:25 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:21:25 - Response Status -> 200
+2025-03-06 02:21:25 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:22:01 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:22:01 - Method -> POST
+2025-03-06 02:22:01 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:22:01 - Response Status -> 200
+2025-03-06 02:22:01 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:22:13 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:22:13 - Method -> POST
+2025-03-06 02:22:13 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:22:13 - Response Status -> 200
+2025-03-06 02:22:13 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:22:13 - Request URL -> http://localhost:8080/security/registration
+2025-03-06 02:22:13 - Method -> GET
+2025-03-06 02:22:13 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:22:13 - Response Status -> 200
+2025-03-06 02:22:13 - Request completed for URL -> http://localhost:8080/security/registration
+2025-03-06 02:23:29 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:23:29 - Method -> GET
+2025-03-06 02:23:29 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:23:29 - Response Status -> 200
+2025-03-06 02:23:29 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:23:44 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:23:44 - Method -> POST
+2025-03-06 02:23:44 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:23:45 - Response Status -> 200
+2025-03-06 02:23:45 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:23:45 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:23:45 - Method -> GET
+2025-03-06 02:23:45 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:23:45 - Request failed with exception -> Cannot invoke "java.security.Principal.getName()" because the return value of "jakarta.servlet.http.HttpServletRequest.getUserPrincipal()" is null
+2025-03-06 02:23:45 - Request completed for URL -> http://localhost:8080/register/users
+2025-03-06 02:30:01 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:30:01 - Method -> GET
+2025-03-06 02:30:01 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:30:01 - Response Status -> 200
+2025-03-06 02:30:01 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:30:19 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:30:19 - Method -> POST
+2025-03-06 02:30:19 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:30:19 - Response Status -> 200
+2025-03-06 02:30:19 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:30:19 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:30:19 - Method -> GET
+2025-03-06 02:30:19 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:30:19 - Request failed with exception -> Cannot invoke "java.security.Principal.getName()" because the return value of "jakarta.servlet.http.HttpServletRequest.getUserPrincipal()" is null
+2025-03-06 02:30:19 - Request completed for URL -> http://localhost:8080/register/users
+2025-03-06 02:38:34 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:38:34 - Method -> GET
+2025-03-06 02:38:34 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:38:34 - Response Status -> 200
+2025-03-06 02:38:34 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:38:55 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:38:55 - Method -> POST
+2025-03-06 02:38:55 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:38:55 - Response Status -> 200
+2025-03-06 02:38:55 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:38:55 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:38:55 - Method -> GET
+2025-03-06 02:38:55 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:38:55 - Response Status -> 200
+2025-03-06 02:38:55 - Request completed for URL -> http://localhost:8080/register/users
+2025-03-06 02:40:01 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:40:01 - Method -> GET
+2025-03-06 02:40:01 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:40:01 - Response Status -> 200
+2025-03-06 02:40:01 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:40:18 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:40:18 - Method -> POST
+2025-03-06 02:40:18 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:40:19 - Response Status -> 200
+2025-03-06 02:40:19 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:40:19 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:40:19 - Method -> GET
+2025-03-06 02:40:19 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:40:19 - Response Status -> 200
+2025-03-06 02:40:19 - Request completed for URL -> http://localhost:8080/register/users
+2025-03-06 02:46:28 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:46:28 - Method -> GET
+2025-03-06 02:46:28 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:46:28 - Response Status -> 200
+2025-03-06 02:46:29 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:46:53 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:46:53 - Method -> POST
+2025-03-06 02:46:53 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:46:53 - Response Status -> 200
+2025-03-06 02:46:53 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:46:53 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:46:53 - Method -> GET
+2025-03-06 02:46:53 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:46:53 - Response Status -> 200
+2025-03-06 02:46:53 - Request completed for URL -> http://localhost:8080/register/users
+2025-03-06 02:49:15 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:49:15 - Method -> GET
+2025-03-06 02:49:15 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:49:15 - Response Status -> 200
+2025-03-06 02:49:15 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:49:29 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:49:29 - Method -> POST
+2025-03-06 02:49:29 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:49:30 - Response Status -> 200
+2025-03-06 02:49:30 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:49:30 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:49:30 - Method -> GET
+2025-03-06 02:49:30 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:49:30 - Response Status -> 200
+2025-03-06 02:49:30 - Request completed for URL -> http://localhost:8080/register/users
+2025-03-06 02:52:14 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:52:14 - Method -> GET
+2025-03-06 02:52:14 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:52:14 - Response Status -> 200
+2025-03-06 02:52:14 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:52:29 - Request URL -> http://localhost:8080/auth/login
+2025-03-06 02:52:29 - Method -> POST
+2025-03-06 02:52:29 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:52:29 - Response Status -> 200
+2025-03-06 02:52:29 - Request completed for URL -> http://localhost:8080/auth/login
+2025-03-06 02:52:29 - Request URL -> http://localhost:8080/register/users
+2025-03-06 02:52:29 - Method -> GET
+2025-03-06 02:52:29 - Remote Address -> 0:0:0:0:0:0:0:1
+2025-03-06 02:52:29 - Response Status -> 200
+2025-03-06 02:52:29 - Request completed for URL -> http://localhost:8080/register/users
